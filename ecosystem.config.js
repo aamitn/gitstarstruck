@@ -4,7 +4,7 @@ module.exports = {
       name: 'GitStarStruck', // Next.js frontend
       cwd: './', // Change directory to the client folder
       script: process.platform === 'win32' ? 'cmd' : 'pnpm',
-      args: process.platform === 'win32' ? '/c pnpm start' : 'start',
+      args: process.platform === 'win32' ? '/c pnpm start -p 3033' : 'start -p 3003',
       env_file: './.env',
       out_file: './logs/next-out.log',
       error_file: './logs/next-error.log',
