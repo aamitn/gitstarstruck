@@ -51,3 +51,4 @@ prisma/dev.db
 #pnpm woprkspace (casues issues with pnpm for replicable builds)
 pnpm-workspace.yaml
 
+prisma/*.db-journal
