@@ -4,6 +4,8 @@
 
 **GitStarStrucks** is an app that allows users to earn `StarStruck Achievement` for their GitHub profile. Easily boost your GitHub presence with a seamless integration to show off your achievements.
 
+**Stack** : Next, Prisma, SQLite
+
 ## Table of Contents
 
 - [Installation](#installation)

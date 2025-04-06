@@ -41,11 +41,12 @@ yarn-error.log*
 next-env.d.ts
 
 # prisma sqlite dbfiles
-/prisma/*.db
-
+prisma/*.db
+prisma/dev.db
 
 /logs
 
 
 #pnpm woprkspace (casues issues with pnpm for replicable builds)
 pnpm-workspace.yaml
+

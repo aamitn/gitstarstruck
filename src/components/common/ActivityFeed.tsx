@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { formatDistanceToNow, parseISO } from 'date-fns';
 
+const feedInterval = Number(process.env.NEXT_PUBLIC_FEED_INTERVAL) || 10000;
+
 interface ActivityItem {
   username: string;
   action: 'starred' | 'unstarred';
@@ -30,7 +32,7 @@ export default function ActivityFeed() {
     };
 
     fetchActivity();
-    const interval = setInterval(fetchActivity, 5000);
+    const interval = setInterval(fetchActivity, feedInterval);
     return () => clearInterval(interval);
   }, []);
 
