@@ -44,7 +44,11 @@ Follow these steps to install dependencies and set up the project:
 
    ```bash
    pnpx prisma migrate deploy
+   pnpx prisma db pull
+   pnpx prisma generate
    ```
+
+
 
 5. **To create an admin user** using Prisma seed: (Creates admin user with username `admin@admin.com` and password `admin123`)
 
