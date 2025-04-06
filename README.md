@@ -94,6 +94,8 @@ We are using sqlite which is not supported at least for free in serverless infra
 
 ```bash
 pm2 start ecosystem.config.js
+pm2 save
+pm2 startup
 ```
 
 > Considering a matured relational db like postgres is not considered given that we only require limited number of tables and minimal usage of entity relationships in this project, flatfile storage/sqlite best suits it.
