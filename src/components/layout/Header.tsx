@@ -16,18 +16,18 @@ export default function Header() {
         {/* Logo / App Name */}
         <div className="w-full flex justify-between items-center">
           {/* Using next/image for the logo */}
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo.png"
               alt="GitStarStrucks Logo"
-              width={40} // Adjust the width as per your need
-              height={40} // Adjust the height as per your need
+              width={40}
+              height={40}
               className="object-contain filter dark:invert"
             />
             <span className="text-xl font-bold text-gray-800 dark:text-white">
               GitStarStruck
             </span>
-          </div>
+          </Link>
           {/* Show theme switcher inline on small screens */}
           <div className="sm:hidden">
             <ThemeSwitcher />
