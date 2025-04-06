@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# GitStarStrucks
 
-First, run the development server:
+**GitStarStrucks** is an app that allows users to earn `StarStruck Achievement` for their GitHub profile. Easily boost your GitHub presence with a seamless integration to show off your achievements.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Table of Contents
+- [Installation](#installation)
+- [Setup Instructions](#setup-instructions)
+- [Development Commands](#development-commands)
+- [Migrations and Seeding](#migrations-and-seeding)
+- [Build and Deployment](#build-and-deployment)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Follow these steps to install dependencies and set up the project:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Install dependencies:
+   ```bash
+   pnpm install
+   ```
 
-## Learn More
+2. Approve the builds:
+   ```bash
+   pnpm approve-builds
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Copy the `.env.example` file to `.env` and configure the necessary environment variables:
+   - **Windows**:
+     - Run `copy .env.example .env` in your terminal or use a file manager to copy and rename the file.
+     - Open `.env` and update environment variables as needed (e.g., database URL, API keys).
+   - **Unix/macOS**:
+     - Run `cp .env.example .env` in your terminal.
+     - Open `.env` and modify environment variables accordingly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **To apply pending migrations**:
+   ```bash
+   pnpx prisma migrate deploy
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **To create an admin user** using Prisma seed:
+   ```bash
+   pnpm tsx prisma/seed.ts
+   ```
 
-## Deploy on Vercel
+6. To start the development server:
+   ```bash
+   pnpm dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+7. To build the project for production:
+   ```bash
+   pnpm build
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+8. To start the production build:
+   ```bash
+   pnpm start
+   ```
+
+## Development Commands
+
+1. **To create a new migration** during development after changing the schema:
+   ```bash
+   npx prisma migrate dev --name <name>
+   ```
+
+
+
+## Production Deployment on bare metal with PM2
+We are using sqlite which is not supported at least for free in  serverless infra providers like vercel, netlify etc, so we will deploy on bare metal using pm2:
+   ```bash
+   pm2 start ecosystem.config.js
+   ```
+>Considering a matured relational db like postgres is not considered given that we only require limited number of tables and minimal usage of entity relationships in this project, flatfile storage/sqlite best suits it.
+## Notes
+
+- Make sure that your `.env` is configured correctly to avoid runtime errors.
+- If you make any changes to the Prisma schema, remember to run the migration commands (`migrate dev` and `migrate deploy`) as appropriate.
+- During development, you can use `pnpm dev` to run the app locally, and when you're ready to deploy, use `pnpm build` followed by `pnpm start`.
+
+---
+
+Feel free to reach out for any support or contributions. We'd love to hear from you!
