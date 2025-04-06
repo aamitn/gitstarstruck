@@ -43,5 +43,9 @@ next-env.d.ts
 # prisma sqlite dbfiles
 /prisma/*.db
 
+
+/logs
+
+
 #pnpm woprkspace (casues issues with pnpm for replicable builds)
 pnpm-workspace.yaml
