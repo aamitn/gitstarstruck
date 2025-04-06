@@ -29,7 +29,7 @@ Follow these steps to install dependencies and set up the project:
    ```bash
    pnpm approve-builds
    ```
-**Then press `a` to select all and  press `y` to accept**
+**Then press `a`,`Enter` to select all and  press `y` to accept**
 
 3. Copy the `.env.example` file to `.env` and configure the necessary environment variables:
 
