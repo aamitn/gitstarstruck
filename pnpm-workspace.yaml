@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - inotify
+  - sharp
+  - sqlite3
